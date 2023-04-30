@@ -52,7 +52,7 @@ In order to be able to access the custom matchers provided by this library withi
   expect("DODO   ").toBeTrimmed(); //FAILURE!
   ```
 
-## TypeScript utilities
+## Utilities
 
 more-jest provides:
 
