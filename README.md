@@ -36,7 +36,7 @@ In order to be able to access the custom matchers provided by this library withi
 
    ```typescript
    module.exports = {
-     setupFilesAfterEnv: ["@giancosta86/more-jest/all"]
+     setupFilesAfterEnv: ["@giancosta86/more-jest/dist/all"]
    };
    ```
 
