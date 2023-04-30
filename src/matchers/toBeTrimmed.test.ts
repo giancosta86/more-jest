@@ -1,5 +1,3 @@
-import "../all";
-
 describe("Expecting a string to be trimmed", () => {
   describe("when the string has leading space", () => {
     it("should fail", () =>
