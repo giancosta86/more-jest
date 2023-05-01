@@ -1,5 +1,4 @@
-import "./extensions.d.ts";
-export * from "jest";
+import "./extensions";
 
 export * from "./core";
 
