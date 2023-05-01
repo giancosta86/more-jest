@@ -1,4 +1,4 @@
-import "./extensions";
+import "./extensions.d.ts";
 
 export * from "./core";
 

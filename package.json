@@ -1,6 +1,6 @@
 {
   "name": "@giancosta86/more-jest",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "TypeScript matchers and utilities for Jest",
   "keywords": [
     "Jest",
@@ -30,8 +30,9 @@
     "test": "jest",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn test --coverage",
-    "build": "yarn compile-ts",
+    "build": "yarn compile-ts && yarn copy-extensions",
     "compile-ts": "tsc",
+    "copy-extensions": "copyfiles -u 1 src/extensions.d.ts dist/",
     "prepack": "yarn check-all && yarn build && yarn test:prod",
     "watch": "yarn compile-ts --watch",
     "test:prod": "jest dist --testPathIgnorePatterns=/_.+"
@@ -43,6 +44,7 @@
     "@types/jest": "^29.5.1",
     "@typescript-eslint/eslint-plugin": "^5.30.3",
     "@typescript-eslint/parser": "^5.30.3",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.18.0",
     "jest": "^29.5.0",
     "jest-extended": "^3.2.3",
