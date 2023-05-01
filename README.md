@@ -20,7 +20,7 @@ or
 yarn add @giancosta86/more-jest
 ```
 
-The public API entirely resides in the root package index, so one shouldn't reference specific modules.
+The public API entirely resides in the root package index, so one shouldn't reference specific modules from TypeScript code.
 
 ### Global matchers
 
