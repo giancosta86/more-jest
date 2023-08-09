@@ -3,7 +3,5 @@ module.exports = {
     "^.+\\.(t|j)sx?$": ["@swc/jest"]
   },
 
-  testPathIgnorePatterns: ["<rootDir>/dist/", "/_.+"],
-
-  setupFilesAfterEnv: ["jest-extended/all", "./src/all.ts"]
+  testPathIgnorePatterns: ["<rootDir>/dist/", "/_.+"]
 };
