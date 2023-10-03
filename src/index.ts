@@ -1,3 +1,5 @@
+import "./extensions";
+
 export * from "./comparison";
 
 export * from "./equality";

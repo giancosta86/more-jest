@@ -16,6 +16,24 @@ The package on NPM is:
 
 The public API entirely resides in the root package index, so you shouldn't reference specific modules.
 
+### Matchers
+
+To use the matchers provided by `more-jest` within a project, one needs to:
+
+1. Add the following attribute to the object exported by `jest.config.js`:
+
+   ```typescript
+   setupFilesAfterEnv: ["@giancosta86/more-jest/dist/all"],
+   ```
+
+1. Add this line to a `global.d.ts` file within the project root directory:
+
+   ```typescript
+   import "@giancosta86/more-jest";
+   ```
+
+1. Add `"./global.d.ts"` to the `include` array in `tsconfig.json`
+
 ## Usage
 
 ### StaticEquality.addTesterFor(classType)
@@ -53,6 +71,14 @@ It takes an object with the following parameters:
 - `scrambledItems`: the items in any chaotic state
 
 - `sortedItems`: the items in the expected order
+
+### Matchers
+
+- `.toBeSameSequence(expected)`: expects that an iterable has the same items, in the same order, as the given iterable. The iterables can be of different types
+
+- `.toBeTrimmed()`: expects that a string be trimmed
+
+- `.toHaveSameJson(expected)`: expects that a value be serialized to JSON as the given object
 
 ## See also
 
