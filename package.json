@@ -1,6 +1,6 @@
 {
   "name": "@giancosta86/more-jest",
-  "version": "2.1.0-beta.1",
+  "version": "2.1.0",
   "description": "TypeScript utilities for Jest",
   "keywords": [
     "Jest",
