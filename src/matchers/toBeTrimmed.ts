@@ -10,13 +10,13 @@ export function toBeTrimmed(
     pass,
     message: () =>
       pass
-        ? matcherHint(".not.toBeTrimmed", "received", "") +
+        ? matcherHint(".not.toBeTrimmed") +
           "\n\n" +
-          "Expected non-trimmed value, received:\n" +
+          "Expected non-trimmed string, received:\n" +
           `  ${printReceived(actual)}`
-        : matcherHint(".toBeTrimmed", "received", "") +
+        : matcherHint(".toBeTrimmed") +
           "\n\n" +
-          "Expected value to be trimmed, received:\n" +
+          "Expected trimmed string, received:\n" +
           `  ${printReceived(actual)}`
   };
 }

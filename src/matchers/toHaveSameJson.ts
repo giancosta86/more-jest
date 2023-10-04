@@ -16,11 +16,11 @@ export function toHaveSameJson(
       pass
         ? matcherHint(".not.toHaveSameJson") +
           "\n\n" +
-          "Expected not to have JSON serialization:\n" +
+          "Expected JSON serialization not equal to:\n" +
           `  ${printExpected(expectedJson)}\n`
         : matcherHint(".toHaveSameJson") +
           "\n\n" +
-          "Expected to have JSON serialization:\n" +
+          "Expected JSON serialization:\n" +
           `  ${printExpected(expectedJson)}\n` +
           "Received JSON serialization:\n" +
           `  ${printReceived(actualJson)}`

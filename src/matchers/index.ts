@@ -1,3 +1,3 @@
-export * from "./toBeSameSequence";
 export * from "./toBeTrimmed";
+export * from "./toEqualSequence";
 export * from "./toHaveSameJson";

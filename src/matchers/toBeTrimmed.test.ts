@@ -1,7 +1,3 @@
-import * as matcher from "./toBeTrimmed";
-
-expect.extend(matcher);
-
 const trimmedScenarios = [
   {
     description: "empty string",
@@ -60,7 +56,7 @@ describe(".toBeTrimmed", () => {
     "fails when given $description",
     ({ value }) => {
       expect(() => expect(value).toBeTrimmed()).toThrow(
-        "Expected value to be trimmed"
+        "Expected trimmed string"
       );
     }
   );
@@ -69,7 +65,7 @@ describe(".toBeTrimmed", () => {
 describe(".not.toBeTrimmed", () => {
   test.each(trimmedScenarios)("fails when given $description", ({ value }) => {
     expect(() => expect(value).not.toBeTrimmed()).toThrow(
-      "Expected non-trimmed value"
+      "Expected non-trimmed string"
     );
   });
 

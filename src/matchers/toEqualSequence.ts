@@ -2,7 +2,7 @@ import { EqualsFunction, Tester } from "@jest/expect-utils";
 
 const JEST_MATCHERS_OBJECT = Symbol.for("$$jest-matchers-object");
 
-function areSameSequence(
+function areEqualSequences(
   actual: Iterable<unknown>,
   expected: Iterable<unknown>,
   equals: EqualsFunction
@@ -30,28 +30,28 @@ function areSameSequence(
   return !!expectedIterator.next().done;
 }
 
-export function toBeSameSequence<T>(
+export function toEqualSequence<T>(
   this: jest.MatcherContext,
   actual: Iterable<T>,
   expected: Iterable<T>
 ): jest.CustomMatcherResult {
   const { printReceived, printExpected, matcherHint } = this.utils;
 
-  const pass = areSameSequence(actual, expected, this.equals);
+  const pass = areEqualSequences(actual, expected, this.equals);
 
   return {
     pass,
     message: () =>
       pass
-        ? matcherHint(".not.toBeSameSequence") +
+        ? matcherHint(".not.toEqualSequence") +
           "\n\n" +
-          "Expected different sequence from:\n" +
+          "Expected sequence not equal to:\n" +
           `  ${printExpected(Array.from(expected))}\n` +
           "Received:\n" +
           `  ${printReceived(Array.from(actual))}`
-        : matcherHint(".toBeSameSequence") +
+        : matcherHint(".toEqualSequence") +
           "\n\n" +
-          "Expected same sequence as:\n" +
+          "Expected sequence equal to:\n" +
           `  ${printExpected(Array.from(expected))}\n` +
           "Received:\n" +
           `  ${printReceived(Array.from(actual))}`

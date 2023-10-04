@@ -1,7 +1,3 @@
-import * as matcher from "./toHaveSameJson";
-
-expect.extend(matcher);
-
 const equalityScenarios = [
   {
     description: "integer numbers",
@@ -73,7 +69,7 @@ describe(".toHaveSameJson", () => {
     "fails when given different $description",
     ({ actual, expected }) => {
       expect(() => expect(actual).toHaveSameJson(expected)).toThrow(
-        "Expected to have JSON serialization"
+        "Expected JSON serialization:"
       );
     }
   );
@@ -84,7 +80,7 @@ describe(".not.toHaveSameJson", () => {
     "fails when given equal $description",
     ({ value }) => {
       expect(() => expect(value).not.toHaveSameJson(value)).toThrow(
-        "Expected not to have JSON serialization"
+        "Expected JSON serialization not equal to:"
       );
     }
   );

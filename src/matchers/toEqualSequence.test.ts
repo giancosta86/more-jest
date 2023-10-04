@@ -1,7 +1,3 @@
-import * as matcher from "./toBeSameSequence";
-
-expect.extend(matcher);
-
 function* fromOneToIncluding(upToIncluding: number): Iterable<number> {
   for (let i = 1; i <= upToIncluding; i++) {
     yield i;
@@ -200,13 +196,13 @@ const generatorInequalityScenarios = [
   }
 ];
 
-describe(".toBeSameSequence", () => {
+describe(".toEqualSequence", () => {
   test.each(arrayEqualityScenarios)(
     "passes when given $description",
     ({ valueFactory }) => {
       const actual = valueFactory();
       const expected = valueFactory();
-      expect(actual).toBeSameSequence(expected);
+      expect(actual).toEqualSequence(expected);
     }
   );
 
@@ -215,8 +211,8 @@ describe(".toBeSameSequence", () => {
     ({ actualFactory, expectedFactory }) => {
       const actual = actualFactory();
       const expected = expectedFactory();
-      expect(() => expect(actual).toBeSameSequence(expected)).toThrow(
-        "Expected same sequence as:"
+      expect(() => expect(actual).toEqualSequence(expected)).toThrow(
+        "Expected sequence equal to:"
       );
     }
   );
@@ -226,7 +222,7 @@ describe(".toBeSameSequence", () => {
     ({ actualFactory, expectedFactory }) => {
       const actual = actualFactory();
       const expected = expectedFactory();
-      expect(actual).toBeSameSequence(expected);
+      expect(actual).toEqualSequence(expected);
     }
   );
 
@@ -235,21 +231,21 @@ describe(".toBeSameSequence", () => {
     ({ actualFactory, expectedFactory }) => {
       const actual = actualFactory();
       const expected = expectedFactory();
-      expect(() => expect(actual).toBeSameSequence(expected)).toThrow(
-        "Expected same sequence as:"
+      expect(() => expect(actual).toEqualSequence(expected)).toThrow(
+        "Expected sequence equal to:"
       );
     }
   );
 });
 
-describe(".not.toBeSameSequence", () => {
+describe(".not.toEqualSequence", () => {
   test.each(arrayEqualityScenarios)(
     "fails when given $description",
     ({ valueFactory }) => {
       const actual = valueFactory();
       const expected = valueFactory();
-      expect(() => expect(actual).not.toBeSameSequence(expected)).toThrow(
-        "Expected different sequence from:"
+      expect(() => expect(actual).not.toEqualSequence(expected)).toThrow(
+        "Expected sequence not equal to:"
       );
     }
   );
@@ -259,7 +255,7 @@ describe(".not.toBeSameSequence", () => {
     ({ actualFactory, expectedFactory }) => {
       const actual = actualFactory();
       const expected = expectedFactory();
-      expect(actual).not.toBeSameSequence(expected);
+      expect(actual).not.toEqualSequence(expected);
     }
   );
 
@@ -268,8 +264,8 @@ describe(".not.toBeSameSequence", () => {
     ({ actualFactory, expectedFactory }) => {
       const actual = actualFactory();
       const expected = expectedFactory();
-      expect(() => expect(actual).not.toBeSameSequence(expected)).toThrow(
-        "Expected different sequence from:"
+      expect(() => expect(actual).not.toEqualSequence(expected)).toThrow(
+        "Expected sequence not equal to:"
       );
     }
   );
@@ -279,7 +275,7 @@ describe(".not.toBeSameSequence", () => {
     ({ actualFactory, expectedFactory }) => {
       const actual = actualFactory();
       const expected = expectedFactory();
-      expect(actual).not.toBeSameSequence(expected);
+      expect(actual).not.toEqualSequence(expected);
     }
   );
 });

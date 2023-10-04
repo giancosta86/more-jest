@@ -74,9 +74,9 @@ It takes an object with the following parameters:
 
 ### Matchers
 
-- `.toBeSameSequence(expected)`: expects that an iterable has the same items, in the same order, as the given iterable. The iterables can be of different types
-
 - `.toBeTrimmed()`: expects that a string be trimmed
+
+- `.toEqualSequence(expected)`: expects that an iterable has the same items, in the same order, as the given iterable. The iterables can be of different types
 
 - `.toHaveSameJson(expected)`: expects that a value be serialized to JSON as the given object
 
