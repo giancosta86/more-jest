@@ -1,8 +1,4 @@
-function* fromOneToIncluding(upToIncluding: number): Iterable<number> {
-  for (let i = 1; i <= upToIncluding; i++) {
-    yield i;
-  }
-}
+import { Iterable } from "@giancosta86/stream-utils";
 
 let letterSerialNumber = 0;
 
@@ -111,38 +107,38 @@ const arrayInequalityScenarios = [
 const generatorEqualityScenarios = [
   {
     description: "empty generators",
-    actualFactory: () => fromOneToIncluding(0),
-    expectedFactory: () => fromOneToIncluding(0)
+    actualFactory: () => Iterable.rangeIncluding(1, 0),
+    expectedFactory: () => Iterable.rangeIncluding(1, 0)
   },
 
   {
     description: "generators having equal items",
-    actualFactory: () => fromOneToIncluding(3),
-    expectedFactory: () => fromOneToIncluding(3)
+    actualFactory: () => Iterable.rangeIncluding(1, 3),
+    expectedFactory: () => Iterable.rangeIncluding(1, 3)
   },
 
   {
     description: "empty actual generator and empty expected array",
-    actualFactory: () => fromOneToIncluding(0),
+    actualFactory: () => Iterable.rangeIncluding(1, 0),
     expectedFactory: () => []
   },
 
   {
     description: "empty actual array and empty expected generator",
     actualFactory: () => [],
-    expectedFactory: () => fromOneToIncluding(0)
+    expectedFactory: () => Iterable.rangeIncluding(1, 0)
   },
 
   {
     description: "actual generator and expected array having equal items",
-    actualFactory: () => fromOneToIncluding(4),
+    actualFactory: () => Iterable.rangeIncluding(1, 4),
     expectedFactory: () => [1, 2, 3, 4]
   },
 
   {
     description: "equal actual array and expected generator",
     actualFactory: () => [1, 2, 3, 4],
-    expectedFactory: () => fromOneToIncluding(4)
+    expectedFactory: () => Iterable.rangeIncluding(1, 4)
   },
 
   {
@@ -155,37 +151,37 @@ const generatorEqualityScenarios = [
 const generatorInequalityScenarios = [
   {
     description: "empty actual generator and non-empty expected generator",
-    actualFactory: () => fromOneToIncluding(0),
-    expectedFactory: () => fromOneToIncluding(3)
+    actualFactory: () => Iterable.rangeIncluding(1, 0),
+    expectedFactory: () => Iterable.rangeIncluding(1, 3)
   },
 
   {
     description: "non-empty actual generator and empty expected generator",
-    actualFactory: () => fromOneToIncluding(5),
-    expectedFactory: () => fromOneToIncluding(0)
+    actualFactory: () => Iterable.rangeIncluding(1, 5),
+    expectedFactory: () => Iterable.rangeIncluding(1, 0)
   },
 
   {
     description: "actual generator having less items than expected generator",
-    actualFactory: () => fromOneToIncluding(3),
-    expectedFactory: () => fromOneToIncluding(5)
+    actualFactory: () => Iterable.rangeIncluding(1, 3),
+    expectedFactory: () => Iterable.rangeIncluding(1, 5)
   },
 
   {
     description: "actual generator having more items than expected generator",
-    actualFactory: () => fromOneToIncluding(5),
-    expectedFactory: () => fromOneToIncluding(3)
+    actualFactory: () => Iterable.rangeIncluding(1, 5),
+    expectedFactory: () => Iterable.rangeIncluding(1, 3)
   },
 
   {
     description: "generator and array having different items",
-    actualFactory: () => fromOneToIncluding(3),
+    actualFactory: () => Iterable.rangeIncluding(1, 3),
     expectedFactory: () => [90, 92, 98]
   },
 
   {
     description: "generator and array having items in different order",
-    actualFactory: () => fromOneToIncluding(3),
+    actualFactory: () => Iterable.rangeIncluding(1, 3),
     expectedFactory: () => [3, 1, 2]
   },
 

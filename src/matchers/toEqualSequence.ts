@@ -1,33 +1,18 @@
 import { EqualsFunction, Tester } from "@jest/expect-utils";
-
-const JEST_MATCHERS_OBJECT = Symbol.for("$$jest-matchers-object");
+import { Iterable } from "@giancosta86/stream-utils";
 
 function areEqualSequences(
   actual: Iterable<unknown>,
   expected: Iterable<unknown>,
   equals: EqualsFunction
 ): boolean {
-  const expectedIterator = expected[Symbol.iterator]();
+  const customEqualityTesters: Tester[] = (global as any)[
+    Symbol.for("$$jest-matchers-object")
+  ].customEqualityTesters;
 
-  for (const actualItem of actual) {
-    const expectedStep = expectedIterator.next();
-
-    if (expectedStep.done) {
-      return false;
-    }
-
-    const expectedItem = expectedStep.value;
-
-    const customEqualityTesters: Tester[] = (global as any)[
-      JEST_MATCHERS_OBJECT
-    ].customEqualityTesters;
-
-    if (!equals(actualItem, expectedItem, customEqualityTesters)) {
-      return false;
-    }
-  }
-
-  return !!expectedIterator.next().done;
+  return Iterable.equals(actual, expected, (left, right) =>
+    equals(left, right, customEqualityTesters)
+  );
 }
 
 export function toEqualSequence<T>(

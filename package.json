@@ -1,6 +1,6 @@
 {
   "name": "@giancosta86/more-jest",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "TypeScript utilities for Jest",
   "keywords": [
     "Jest",
@@ -37,6 +37,7 @@
     "watch": "yarn compile-ts --watch"
   },
   "dependencies": {
+    "@giancosta86/stream-utils": "^2.2.0",
     "@rimbu/common": "^1.1.0",
     "@rimbu/list": "^1.1.0"
   },
