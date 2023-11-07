@@ -1,4 +1,24 @@
+import { expect } from "@jest/globals";
+import { AnyClass, HasEquals, optionalEquals } from "@giancosta86/swan-lake";
+
+function createEqualityTesterFor<T extends HasEquals>(
+  classType: AnyClass
+): jest.EqualityTester {
+  return function (left: T, right: T): boolean | undefined {
+    if (!(left instanceof classType) || !(right instanceof classType)) {
+      return;
+    }
+    return optionalEquals(left, right);
+  };
+}
+
 export namespace Equality {
+  export function addTesterFor(classType: AnyClass): void {
+    const equalityTester = createEqualityTesterFor(classType);
+
+    expect.addEqualityTesters([equalityTester]);
+  }
+
   export function test<T>(factory: () => T, differentFactory: () => T) {
     describe("equality", () => {
       it("should work", () => {

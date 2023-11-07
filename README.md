@@ -36,19 +36,19 @@ To use the matchers provided by `more-jest` within a project, one needs to:
 
 ## Usage
 
-### StaticEquality.addTesterFor(classType)
+### Equality.addTesterFor(classType)
 
-Takes as parameter a class `T` containing a `static` method defined as:
+Takes a parameter of class `T` containing a method defined as:
 
 ```typescript
-equals(left: T, right: T): boolean {}
+equals(other: T): boolean {}
 ```
 
 and registers into Jest an _equality tester_ that:
 
 - returns `undefined` if either equality operand is not an instance of class `T`
 
-- otherwise, returns the result `T.equals()` applied to the operands
+- otherwise, returns calls `optionalEquals()` as defined by [@giancosta86/swanlake](https://github.com/giancosta86/swan-lake)
 
 ### Equality.test
 
@@ -81,6 +81,8 @@ It takes an object with the following parameters:
 - `.toHaveSameJson(expected)`: expects that a value be serialized to JSON as the given object
 
 ## See also
+
+- [swan-lake](https://github.com/giancosta86/swan-lake)
 
 - [more-jest-io](https://github.com/giancosta86/more-jest-io) - this library's **I/O**-related counterpart
 

@@ -342,6 +342,11 @@
   resolved "https://registry.yarnpkg.com/@giancosta86/stream-utils/-/stream-utils-2.2.0.tgz#adf033649d9c92023bf28efe8bbe0f8dda4443b2"
   integrity sha512-hrzHesSuwGeYTBo8AOL1eoGF4C1pjt177uAJ4pOI5Auet0CTC5y92FDn2ru2IvDRYy3ZxDgoHAdf9FJYApwLHA==
 
+"@giancosta86/swan-lake@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@giancosta86/swan-lake/-/swan-lake-1.0.0.tgz#fbbc204a6d44f6b3e8ca55be848afa2cd0cfbe88"
+  integrity sha512-97xfs7DFUpr2nF5z19XBq8CrDIofo7eZKd+gN+hcmZhkJL/v26psqOnAWTLp9qveGiptgazAQ4wwFVHwXO1YEA==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
