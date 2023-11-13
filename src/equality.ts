@@ -1,5 +1,5 @@
 import { expect } from "@jest/globals";
-import { AnyClass, HasEquals, optionalEquals } from "@giancosta86/swan-lake";
+import { AnyClass, HasEquals, Option } from "@giancosta86/swan-lake";
 
 function createEqualityTesterFor<T extends HasEquals>(
   classType: AnyClass
@@ -8,7 +8,7 @@ function createEqualityTesterFor<T extends HasEquals>(
     if (!(left instanceof classType) || !(right instanceof classType)) {
       return;
     }
-    return optionalEquals(left, right);
+    return Option.equals(left, right);
   };
 }
 

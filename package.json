@@ -1,6 +1,6 @@
 {
   "name": "@giancosta86/more-jest",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "TypeScript utilities for Jest",
   "keywords": [
     "Jest",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@giancosta86/stream-utils": "^2.2.0",
-    "@giancosta86/swan-lake": "^1.0.0",
+    "@giancosta86/swan-lake": "^2.0.0",
     "@rimbu/common": "^1.1.0",
     "@rimbu/list": "^1.1.0"
   },
