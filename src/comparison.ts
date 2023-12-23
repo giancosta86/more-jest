@@ -19,6 +19,22 @@ export namespace Comparison {
 
         expect(sortedList.toArray()).toEqual(sortedItems);
       });
+
+      it("should satisfy isComparable()", () => {
+        const iterator = scrambledItems[Symbol.iterator]();
+
+        for (;;) {
+          const { value, done } = iterator.next();
+
+          if (done) {
+            break;
+          }
+
+          const isComparable = comp.isComparable(value);
+
+          expect(isComparable).toBe(true);
+        }
+      });
     });
   }
 }

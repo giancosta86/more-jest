@@ -18,6 +18,14 @@ function createLetterComp(): Comp<Letter> {
 }
 
 describe("When applying comparison test automation", () => {
+  describe("to empty arrays", () => {
+    Comparison.test({
+      comp: createLetterComp(),
+      scrambledItems: [],
+      sortedItems: []
+    });
+  });
+
   describe("to numbers", () => {
     Comparison.test({
       comp: Comp.numberComp(),
